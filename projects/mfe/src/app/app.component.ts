@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { TestLibrary } from 'test-lib';
+import { CartComponent } from 'test-lib';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [TestLibrary],
+  imports: [CartComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent {

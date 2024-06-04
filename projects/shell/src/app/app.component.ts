@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { TestLibrary } from 'test-lib';
+import { ButtonComponent } from 'test-lib';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import { TestLibrary } from 'test-lib';
   imports: [
     RouterOutlet,
     RouterLink,
-    TestLibrary
+    ButtonComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

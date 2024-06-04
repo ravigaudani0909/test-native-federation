@@ -1,4 +1,2 @@
-/*
- * Public API Surface of test-lib
- */
-export * from './lib/library.module';
+export * from './lib/cart.component';
+export * from './lib/button.component';
