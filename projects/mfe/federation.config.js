@@ -1,4 +1,4 @@
-const { withNativeFederation, shareAll } = require('@angular-architects/native-federation/config');
+const { withNativeFederation, shareAll, share } = require('@angular-architects/native-federation/config');
 
 module.exports = withNativeFederation({
 
@@ -10,12 +10,20 @@ module.exports = withNativeFederation({
 
   shared: {
     ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
-  },
 
-  sharedMappings: [
-    '@angular/common/locales/de',
-    '@angular/common/locales/extra/de'
-  ],
+    ...share(
+      [
+        '@angular/common/locales/de',
+        '@angular/common/locales/extra/de'
+      ].reduce(
+        (acc, name) => ({
+          ...acc,
+          [name]: { singleton: true, strictVersion: true, requiredVersion: 'auto', includeSecondaries: false },
+        }),
+        {},
+      ),
+    ),
+  },
 
   skip: [
     'rxjs/ajax',
@@ -23,5 +31,7 @@ module.exports = withNativeFederation({
     'rxjs/testing',
     'rxjs/webSocket',
     // Add further packages you don't need at runtime
-  ]
+  ],
+
+  sharedMappings: ['test-lib'],
 });
